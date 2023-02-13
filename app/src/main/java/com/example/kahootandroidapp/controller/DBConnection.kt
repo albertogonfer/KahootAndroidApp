@@ -4,11 +4,11 @@ import com.example.kahootandroidapp.classes.Users
 import com.google.firebase.database.FirebaseDatabase
 
 class DBConnection {
-    val database = FirebaseDatabase.getInstance().reference
+    private val database = FirebaseDatabase.getInstance().reference
 
-    fun addUser(user: Users) {
-        val gamesRef = database.child("Games").child(user.getGameCode())
+    fun addUserToGame(user: Users) {
+        val gamesRef = database.child("Games").child(user.getGameCode()).child("Participants")
 
-        gamesRef.child(user.getUsername()).setValue(user.getOptionSelected())
+        gamesRef.child(user.getUsername()).setValue(user.getTotalPoints().toString() + "pts")
     }
 }

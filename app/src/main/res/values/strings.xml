@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">KahootAndroidApp</string>
+    <string name="title">KAHOOT</string>
+    <string name="send_button">Send</string>
+    <string name="game_code">Enter Game Code</string>
+    <string name="username">Enter User Name</string>
 </resources>
