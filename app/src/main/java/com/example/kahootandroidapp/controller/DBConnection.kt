@@ -7,8 +7,8 @@ class DBConnection {
     private val database = FirebaseDatabase.getInstance().reference
 
     fun addUserToGame(user: Users) {
-        val gamesRef = database.child("Games").child(user.getGameCode()).child("Participants")
+        val gamesRef = database.child("Games").child(user.getGameCode()).child("Users")
 
-        gamesRef.child(user.getUsername()).setValue(user.getTotalPoints().toString() + "pts")
+        gamesRef.child(user.getUsername()).setValue(user.getTotalPoints().toString() + " pts")
     }
 }
