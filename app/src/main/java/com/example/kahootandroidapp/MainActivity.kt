@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.kahootandroidapp.controller.DBConnection
 import com.example.kahootandroidapp.classes.Users
 
@@ -25,7 +26,13 @@ class MainActivity : AppCompatActivity() {
             val user = Users()
             user.setUsername(username.text.toString())
             user.setGameCode(gameCode.text.toString())
-            DBConnection().addUserToGame(user)
+            if (!DBConnection().addUserToGame(user)) {
+                toastMessage("Game code does not exist")
+            }
         }
+    }
+
+    private fun toastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }
